@@ -12,7 +12,7 @@ def main():
 			text=text.replace(" ","") 		#받아온 text변수안에 공백을 완전히 제거 해준다
 			print("text : %s"%text)
 
-		text = text.encode("utf-8")
+		# text = text.encode("utf-8")
 		# print("type : %s" %type(text))
 
 		if("안녕" in text):
