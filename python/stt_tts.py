@@ -140,7 +140,7 @@ def time_out():
         n+=1
         if(n>500):
             out=False
-            out=0
+            n=0
         else : 
             out=True
 
