@@ -32,5 +32,4 @@ def main():
 		text=""
 
 if __name__ == '__main__':
-	stt_tts.time_thread_out()
 	main()

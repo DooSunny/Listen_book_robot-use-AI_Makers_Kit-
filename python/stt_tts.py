@@ -132,19 +132,3 @@ def getText2VoiceStream(inText,inFileName):
 			writeFile.write(response.audioContent)
 	writeFile.close()
 	return response.resOptions.resultCd
-
-def time_out():
-    n = 0
-    while True:
-        sleep(0.01)
-        n+=1
-        if(n>500):
-            out=False
-            n=0
-        else : 
-            out=True
-
-def time_thread_out():
-        thread=threading.Thread(target=time_out,args=())
-        thread.daemon=True #프로그램 종료시 프로세스도 함께 종료 (백그라운드 재생 X)
-        thread.start()
