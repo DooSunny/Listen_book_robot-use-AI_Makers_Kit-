@@ -145,6 +145,6 @@ def time_out():
             out=True
 
 def time_thread_out():
-        thread=threading.Thread(target=time_out(),args=())
+        thread=threading.Thread(target=time_out,args=())
         thread.daemon=True #프로그램 종료시 프로세스도 함께 종료 (백그라운드 재생 X)
         thread.start()
