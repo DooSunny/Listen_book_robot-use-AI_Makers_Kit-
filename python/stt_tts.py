@@ -97,12 +97,12 @@ def getVoice2Text():
     stub = gigagenieRPC_pb2_grpc.GigagenieStub(channel)
     request = generate_request()
     resultText = ''
-    for(response in stub.getVoice2Text(request)and out):
+    forresponse in stub.getVoice2Text(request):
         if(response.resultCd == 200): # partial
             print('resultCd=%d | recognizedText= %s' 
                   % (response.resultCd, response.recognizedText))
             resultText = response.recognizedText
-        elif(response.resultCd == 201): # final
+        elif(response.resultCd == 201 or out): # final
             print('resultCd=%d | recognizedText= %s' 
                   % (response.resultCd, response.recognizedText))
             resultText = response.recognizedText
