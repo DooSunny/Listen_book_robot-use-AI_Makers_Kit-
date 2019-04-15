@@ -16,14 +16,15 @@ def main():
 		# print("type : %s" %type(text))
 
 		if("안녕" in text):
-			stt_tts.getText2VoiceStream("안녕하세요. 반갑습니다.", output_file)
+			stt_tts.getText2VoiceStream("안녕, 반가워.", output_file)
 
 		elif(("읽을" in text) or("읽어" in text)):
 			stt_tts.getText2VoiceStream("오, 재밌겠네여 어서 읽어주세요. 듣기모드를 실행합니다", output_file)
+			MS.play_file(output_file)
 			
 			while True:
-				text = stt_tts.getVoice2Text()
-				text=text.replace(" ","")
+				listen_text = stt_tts.getVoice2Text()
+				listen_text=text.replace(" ","")
 
 		else:
 			stt_tts.getText2VoiceStream("알아들을 수 가 없습니다. 다시한번 말씀 해주세요.", output_file)
