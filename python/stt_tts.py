@@ -17,6 +17,10 @@ import RPi.GPIO as GPIO
 import ktkws # KWS
 import MicrophoneStream as MS
 import datetime
+from time import sleep
+import threading
+
+out = True
 
 KWSID = ['기가지니', '지니야', '친구야', '자기야']
 RATE = 16000
@@ -93,12 +97,12 @@ def getVoice2Text():
     stub = gigagenieRPC_pb2_grpc.GigagenieStub(channel)
     request = generate_request()
     resultText = ''
-    for response in stub.getVoice2Text(request):
-        if response.resultCd == 200: # partial
+    for(response in stub.getVoice2Text(request)and out):
+        if(response.resultCd == 200): # partial
             print('resultCd=%d | recognizedText= %s' 
                   % (response.resultCd, response.recognizedText))
             resultText = response.recognizedText
-        elif response.resultCd == 201: # final
+        elif(response.resultCd == 201): # final
             print('resultCd=%d | recognizedText= %s' 
                   % (response.resultCd, response.recognizedText))
             resultText = response.recognizedText
@@ -108,7 +112,6 @@ def getVoice2Text():
                   % (response.resultCd, response.recognizedText))
             break
 
-    # print ("\n\n인식결과: %s \n\n\n" % (resultText))
     return resultText
 
 def getText2VoiceStream(inText,inFileName):
@@ -129,3 +132,19 @@ def getText2VoiceStream(inText,inFileName):
 			writeFile.write(response.audioContent)
 	writeFile.close()
 	return response.resOptions.resultCd
+
+def time_out():
+    n = 0
+    while True:
+        sleep(0.01)
+        n+=1
+        if(n>500):
+            out=False
+            out=0
+        else : 
+            out=True
+
+def time_thread_out():
+        thread=threading.Thread(target=time_out(),args=())
+        thread.daemon=True #프로그램 종료시 프로세스도 함께 종료 (백그라운드 재생 X)
+        thread.start()
