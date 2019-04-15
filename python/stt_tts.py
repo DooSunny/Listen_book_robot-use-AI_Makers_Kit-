@@ -98,7 +98,7 @@ def getVoice2Text():
     request = generate_request()
     resultText = ''
     for response in stub.getVoice2Text(request):
-        if(response.resultCd == 200): # partial
+        if(response.resultCd == 200 or out): # partial
             print('resultCd=%d | recognizedText= %s' 
                   % (response.resultCd, response.recognizedText))
             resultText = response.recognizedText
