@@ -20,7 +20,7 @@ import datetime
 from time import sleep
 import threading
 
-out = True
+out = False
 
 KWSID = ['기가지니', '지니야', '친구야', '자기야']
 RATE = 16000
@@ -91,30 +91,31 @@ def generate_request():
             rms = audioop.rms(content,2)
             #print_rms(rms)
 
-def getVoice2Text():	
-    print ("\n\n음성인식을 시작합니다.\n\n종료하시려면 Ctrl+\ 키를 누루세요.\n\n\n")
-    channel = grpc.secure_channel('{}:{}'.format(HOST, PORT), UA.getCredentials())
-    stub = gigagenieRPC_pb2_grpc.GigagenieStub(channel)
-    request = generate_request()
-    resultText = ''
-    for response in stub.getVoice2Text(request):
-		if(set_second_thread()):
+def getVoice2Text():
+	global out	
+	print ("\n\n음성인식을 시작합니다.\n\n종료하시려면 Ctrl+\ 키를 누루세요.\n\n\n")
+	channel = grpc.secure_channel('{}:{}'.format(HOST, PORT), UA.getCredentials())
+	stub = gigagenieRPC_pb2_grpc.GigagenieStub(channel)
+	request = generate_request()
+	resultText = ''
+	for response in stub.getVoice2Text(request):
+		if(out):
 			return resultText
-        if(response.resultCd == 200 or out): # partial
-            print('resultCd=%d | recognizedText= %s' 
-                  % (response.resultCd, response.recognizedText))
-            resultText = response.recognizedText
-        elif(response.resultCd == 201 or out): # final
-            print('resultCd=%d | recognizedText= %s' 
-                  % (response.resultCd, response.recognizedText))
-            resultText = response.recognizedText
-            break
-        else:
-            print('resultCd=%d | recognizedText= %s' 
-                  % (response.resultCd, response.recognizedText))
-            break
+		if(response.resultCd == 200 or out): # partial
+			print('resultCd=%d | recognizedText= %s' 
+				% (response.resultCd, response.recognizedText))
+			resultText = response.recognizedText
+		elif(response.resultCd == 201 or out): # final
+			print('resultCd=%d | recognizedText= %s' 
+				% (response.resultCd, response.recognizedText))
+			resultText = response.recognizedText
+			break
+		else:
+			print('resultCd=%d | recognizedText= %s' 
+				% (response.resultCd, response.recognizedText))
+			break
 
-    return resultText
+		return resultText
 
 def getText2VoiceStream(inText,inFileName):
 
@@ -136,11 +137,13 @@ def getText2VoiceStream(inText,inFileName):
 	return response.resOptions.resultCd
 
 def set_second():
+	global out
 	n=0
 	while True:
 		sleep(1)
 		if n > 5 :
-			return True
+			out = True
+			return
 		n+=1
 
 def set_second_thread():
