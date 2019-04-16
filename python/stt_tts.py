@@ -91,13 +91,13 @@ def generate_request():
             rms = audioop.rms(content,2)
             #print_rms(rms)
 
-def getVoice2Text():
-	global out	
+def getVoice2Text():	
 	print ("\n\n음성인식을 시작합니다.\n\n종료하시려면 Ctrl+\ 키를 누루세요.\n\n\n")
 	channel = grpc.secure_channel('{}:{}'.format(HOST, PORT), UA.getCredentials())
 	stub = gigagenieRPC_pb2_grpc.GigagenieStub(channel)
 	request = generate_request()
 	resultText = ''
+	set_second_thread()
 	for response in stub.getVoice2Text(request):
 		if(out):
 			return resultText
@@ -137,8 +137,8 @@ def getText2VoiceStream(inText,inFileName):
 	return response.resOptions.resultCd
 
 def set_second():
-	global out
 	n=0
+	out=False
 	while True:
 		sleep(0.1)
 		if n > 100 :
