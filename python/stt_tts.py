@@ -92,6 +92,7 @@ def generate_request():
             #print_rms(rms)
 
 def getVoice2Text():	
+	global out
 	print ("\n\n음성인식을 시작합니다.\n\n종료하시려면 Ctrl+\ 키를 누루세요.\n\n\n")
 	channel = grpc.secure_channel('{}:{}'.format(HOST, PORT), UA.getCredentials())
 	stub = gigagenieRPC_pb2_grpc.GigagenieStub(channel)
@@ -137,6 +138,7 @@ def getText2VoiceStream(inText,inFileName):
 	return response.resOptions.resultCd
 
 def set_second():
+	global out
 	n=0
 	out=False
 	while True:
