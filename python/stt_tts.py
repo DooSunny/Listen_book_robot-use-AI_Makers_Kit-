@@ -101,7 +101,7 @@ def getVoice2Text():
 	set_second_thread()
 	for response in stub.getVoice2Text(request):
 		if(out):
-			return resultText
+			return 
 		if(response.resultCd == 200): # partial
 			print('resultCd=%d | recognizedText= %s' 
 				% (response.resultCd, response.recognizedText))
@@ -149,6 +149,6 @@ def set_second():
 		n+=1
 
 def set_second_thread():
-	thread=threading.Thread(target=set_second,args=())
+	thread=threading.Thread(target=set_second(),args=())
 	thread.daemon=True #프로그램 종료시 프로세스도 함께 종료 (백그라운드 재생 X)
 	thread.start()
