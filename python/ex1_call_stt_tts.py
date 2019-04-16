@@ -12,7 +12,7 @@ def main():
 
 		# "읽는다" 하였을때 호출어없이 sst만 동작
 		elif(("읽을" in text) or("읽어" in text)):
-			stt_tts.getText2VoiceStream("오. 재밌겠어 어서 읽어줘. 듣기모드를 실행할게.", output_file)
+			stt_tts.getText2VoiceStream("오. 재밌겠어. 듣기모드를 실행할게.", output_file)
 			MS.play_file(output_file)
 
 			while True:
