@@ -98,10 +98,9 @@ def getVoice2Text():
 	stub = gigagenieRPC_pb2_grpc.GigagenieStub(channel)
 	request = generate_request()
 	resultText = ''
-	set_second_thread()
 	for response in stub.getVoice2Text(request):
 		if(out):
-			return 
+			return resultText
 		if(response.resultCd == 200): # partial
 			print('resultCd=%d | recognizedText= %s' 
 				% (response.resultCd, response.recognizedText))
@@ -143,7 +142,7 @@ def set_second():
 	out=False
 	while True:
 		sleep(0.1)
-		if n > 100 :
+		if n > 50 :
 			out = True
 			return
 		n+=1
