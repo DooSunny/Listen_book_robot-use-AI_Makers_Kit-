@@ -45,5 +45,4 @@ def main():
 		text=""
 
 if __name__ == '__main__':
-	stt_tts.set_second_thread()
 	main()

@@ -99,8 +99,6 @@ def getVoice2Text():
 	request = generate_request()
 	resultText = ''
 	for response in stub.getVoice2Text(request):
-		if(out):
-			return resultText
 		if(response.resultCd == 200): # partial
 			print('resultCd=%d | recognizedText= %s' 
 				% (response.resultCd, response.recognizedText))
@@ -135,19 +133,3 @@ def getText2VoiceStream(inText,inFileName):
 			writeFile.write(response.audioContent)
 	writeFile.close()
 	return response.resOptions.resultCd
-
-def set_second():
-	global out
-	n=0
-	out=False
-	while True:
-		sleep(0.1)
-		if n > 50 :
-			out = True
-			return
-		n+=1
-
-def set_second_thread():
-	thread=threading.Thread(target=set_second(),args=())
-	thread.daemon=True #프로그램 종료시 프로세스도 함께 종료 (백그라운드 재생 X)
-	thread.start()
