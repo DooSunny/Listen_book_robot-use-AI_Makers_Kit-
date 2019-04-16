@@ -1,10 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-"""Example 1: GiGA Genie Keyword Spotting"""
-
-from __future__ import print_function
-
 import grpc
 import gigagenieRPC_pb2
 import gigagenieRPC_pb2_grpc
@@ -17,10 +10,19 @@ import RPi.GPIO as GPIO
 import ktkws # KWS
 import MicrophoneStream as MS
 import datetime
-from time import sleep
-import threading
 
-out = False
+def test(key_word = '기가지니'):
+	rc = ktkws.init("../data/kwsmodel.pack")
+	print ('init rc = %d' % (rc))
+	rc = ktkws.start()
+	print ('start rc = %d' % (rc))
+	print ('\n호출어를 불러보세요~\n')
+	ktkws.set_keyword(KWSID.index(key_word))
+	rc = detect()
+	print ('detect rc = %d' % (rc))
+	print ('\n\n호출어가 정상적으로 인식되었습니다.\n\n')
+	ktkws.stop()
+	return rc
 
 KWSID = ['기가지니', '지니야', '친구야', '자기야']
 RATE = 16000
@@ -66,19 +68,6 @@ def detect():
 				MS.play_file("../data/sample_sound.wav")
 				return 200
 
-def test(key_word = '기가지니'):
-	rc = ktkws.init("../data/kwsmodel.pack")
-	print ('init rc = %d' % (rc))
-	rc = ktkws.start()
-	print ('start rc = %d' % (rc))
-	print ('\n호출어를 불러보세요~\n')
-	ktkws.set_keyword(KWSID.index(key_word))
-	rc = detect()
-	print ('detect rc = %d' % (rc))
-	print ('\n\n호출어가 정상적으로 인식되었습니다.\n\n')
-	ktkws.stop()
-	return rc
-
 def generate_request():
     with MS.MicrophoneStream(RATE, CHUNK) as stream:
         audio_generator = stream.generator()
@@ -92,28 +81,28 @@ def generate_request():
             #print_rms(rms)
 
 def getVoice2Text():	
-	global out
-	print ("\n\n음성인식을 시작합니다.\n\n종료하시려면 Ctrl+\ 키를 누루세요.\n\n\n")
-	channel = grpc.secure_channel('{}:{}'.format(HOST, PORT), UA.getCredentials())
-	stub = gigagenieRPC_pb2_grpc.GigagenieStub(channel)
-	request = generate_request()
-	resultText = ''
-	for response in stub.getVoice2Text(request):
-		if(response.resultCd == 200): # partial
-			print('resultCd=%d | recognizedText= %s' 
-				% (response.resultCd, response.recognizedText))
-			resultText = response.recognizedText
-		elif(response.resultCd == 201): # final
-			print('resultCd=%d | recognizedText= %s' 
-				% (response.resultCd, response.recognizedText))
-			resultText = response.recognizedText
-			break
-		else:
-			print('resultCd=%d | recognizedText= %s' 
-				% (response.resultCd, response.recognizedText))
-			break
+    print ("\n\n음성인식을 시작합니다.\n\n")  #\n종료하시려면 Ctrl+\ 키를 누루세요.\n\n
+    channel = grpc.secure_channel('{}:{}'.format(HOST, PORT), UA.getCredentials())
+    stub = gigagenieRPC_pb2_grpc.GigagenieStub(channel)
+    request = generate_request()
+    resultText = ''
+    for response in stub.getVoice2Text(request):
+        if response.resultCd == 200: # partial
+            print('resultCd=%d | recognizedText= %s' 
+                  % (response.resultCd, response.recognizedText))
+            resultText = response.recognizedText
+        elif response.resultCd == 201: # final
+            print('resultCd=%d | recognizedText= %s' 
+                  % (response.resultCd, response.recognizedText))
+            resultText = response.recognizedText
+            break
+        else:
+            print('resultCd=%d | recognizedText= %s' 
+                  % (response.resultCd, response.recognizedText))
+            break
 
-		return resultText
+    # print ("\n\n인식결과: %s \n\n\n" % (resultText))
+    return resultText
 
 def getText2VoiceStream(inText,inFileName):
 
@@ -133,3 +122,12 @@ def getText2VoiceStream(inText,inFileName):
 			writeFile.write(response.audioContent)
 	writeFile.close()
 	return response.resOptions.resultCd
+
+def Call():
+    test_return = test()
+
+    if(int(test_return) == 200):
+        text = getVoice2Text()
+        text=text.replace(" ","")
+
+        return text
