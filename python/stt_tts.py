@@ -140,8 +140,8 @@ def set_second():
 	global out
 	n=0
 	while True:
-		sleep(1)
-		if n > 5 :
+		sleep(0.1)
+		if n > 100 :
 			out = True
 			return
 		n+=1
