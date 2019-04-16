@@ -141,7 +141,7 @@ def set_second():
 	out=False
 	while True:
 		sleep(0.1)
-		if n > 50 :
+		if n > 100 :
 			out = True
 			return
 		n+=1
