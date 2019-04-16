@@ -28,6 +28,7 @@ def main():
 				elif("안녕" in listen_text):
 					stt_tts.getText2VoiceStream("그래그래. 인사 그만해두돼.", output_file)
 					MS.play_file(output_file)
+					sleep(8)
 
 		else:
 			stt_tts.getText2VoiceStream("알아들을 수 가 없습니다. 다시한번 말씀 해주세요.", output_file)
