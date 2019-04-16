@@ -140,7 +140,7 @@ def set_second():
 	while True:
 		sleep(1)
 		if n > 5 :
-			return false
+			return True
 		n+=1
 
 def set_second_thread():
