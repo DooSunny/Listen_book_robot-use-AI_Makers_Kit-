@@ -8,7 +8,8 @@ def stt_roop():
     while True:
         listen_text = stt_tts.getVoice2Text()
         listen_text=text.replace(" ","")
-
+        
+        print("text : %s"% listen_text)
         if("끝" in listen_text): #잘들었어,재밌었어,다음에 또 읽어줘 
             break
 
