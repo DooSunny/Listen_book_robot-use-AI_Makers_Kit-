@@ -22,7 +22,6 @@ def main():
 			stt_tts.getText2VoiceStream("알아들을 수 가 없습니다. 다시한번 말씀 해주세요.", output_file)
 
 		MS.play_file(output_file)
-		text=""
 
 if __name__ == '__main__':
 	main()
