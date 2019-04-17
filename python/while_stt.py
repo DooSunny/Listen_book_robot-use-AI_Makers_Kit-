@@ -1,5 +1,6 @@
 import stt_tts
 import MicrophoneStream as MS
+from time import sleep
 
 def stt_roop():
     output_file = "testtts.wav"
