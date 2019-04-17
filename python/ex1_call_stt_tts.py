@@ -13,7 +13,7 @@ def main():
 			stt_tts.getText2VoiceStream("안녕. 반가워.", output_file)
 
 		# "읽는다" 하였을때 호출어없이 sst만 동작
-		elif(("읽을" in text) or("읽어" in text)):
+		elif("구름빵" in text and (("읽을" in text) or ("읽어" in text))):
 			stt_tts.getText2VoiceStream("듣기모드를 실행할게.", output_file)
 			MS.play_file(output_file)
 			while_stt.cloud_bread()
