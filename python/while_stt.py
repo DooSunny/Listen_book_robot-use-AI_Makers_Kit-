@@ -13,7 +13,7 @@ def cloud_bread():#구름빵
             break
 
         elif("내리고" in text):
-            stt_tts.getText2VoiceStream("우와.", output_file)
+            stt_tts.getText2VoiceStream("밖에 비온다 주륵주륵.", output_file)
             MS.play_file(output_file)
 
         elif("생길것" in text):
