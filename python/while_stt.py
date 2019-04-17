@@ -14,7 +14,7 @@ def stt_roop():
             break
 
         elif("안녕" in text):
-            stt_tts.getText2VoiceStream("그래그래. 인사 그만해두돼.", output_file)
+            stt_tts.getText2VoiceStream("그래그래. 인사 그만해두돼~~", output_file)
             MS.play_file(output_file)
 
     stt_tts.getText2VoiceStream("잘들었어. 다음에 또 읽어줘.", output_file)
