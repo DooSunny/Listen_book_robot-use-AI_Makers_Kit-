@@ -16,11 +16,11 @@ def main():
 		elif(("읽을" in text) or("읽어" in text)):
 			stt_tts.getText2VoiceStream("듣기모드를 실행할게.", output_file)
 			MS.play_file(output_file)
-			while_stt.stt_roop()
+			while_stt.cloud_bread()
 
 		else:
 			stt_tts.getText2VoiceStream("알아들을 수 가 없습니다. 다시한번 말씀 해주세요.", output_file)
-			
+
 		MS.play_file(output_file)
 
 if __name__ == '__main__':
