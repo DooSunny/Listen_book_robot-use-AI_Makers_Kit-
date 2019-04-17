@@ -24,7 +24,7 @@ def cloud_bread():#구름빵
             stt_tts.getText2VoiceStream("뭐야뭐야?", output_file)
             MS.play_file(output_file)
 
-        elif("조심조심안고서." in text):
+        elif("조심조심" in text):
             stt_tts.getText2VoiceStream("조심조심", output_file)
             MS.play_file(output_file)
 
@@ -40,11 +40,11 @@ def cloud_bread():#구름빵
             stt_tts.getText2VoiceStream("그러게요", output_file)
             MS.play_file(output_file)
 
-        elif("맛있게잘익은" in text):
+        elif("잘익은" in text):
             stt_tts.getText2VoiceStream("우와 맛있겠다아", output_file)
             MS.play_file(output_file)
 
-        elif("아빠한테빵을" in text):
+        elif("아빠한테" in text):
             stt_tts.getText2VoiceStream("좋은 생각이야", output_file)
             MS.play_file(output_file)
 
