@@ -69,11 +69,11 @@ def bingle_tiger():#줄줄이꿴호랑이
         if(("끝" in text) or ("그만" in text)): #잘들었어,재밌었어,다음에 또 읽어줘 
             break
 
-        elif("얻어다 주었어" in text):
+        elif("얻어다" in text):
             stt_tts.getText2VoiceStream("괭이로 무엇을 하려고 하는거지?", output_file)
             MS.play_file(output_file)
         
-        elif("주렁주렁열렸지" in text):
+        elif("주렁주렁" in text):
             stt_tts.getText2VoiceStream("참깨로는 무엇을 할까?", output_file)
             MS.play_file(output_file)
 
@@ -81,7 +81,7 @@ def bingle_tiger():#줄줄이꿴호랑이
             stt_tts.getText2VoiceStream("아이의 계획이 무엇일지 너무 궁금해!", output_file)
             MS.play_file(output_file)
 
-        elif("냄새가폴폴" in text):
+        elif("냄새가" in text):
             stt_tts.getText2VoiceStream("우와 게으르지만 영리한 아이였네~!", output_file)
             MS.play_file(output_file)
 
@@ -104,19 +104,19 @@ def red_tie_lion():#빨간 끈으로 머리를 묶은 사자
         if(("끝" in text) or ("그만" in text)): #잘들었어,재밌었어,다음에 또 읽어줘 
             break
 
-        elif("정말예쁠거야" in text):
+        elif("정말예" in text):
             stt_tts.getText2VoiceStream("우와 정말 예쁜 끈이네~", output_file)
             MS.play_file(output_file)
 
-        elif("사자는 무척" in text):
+        elif("사자는무척" in text):
             stt_tts.getText2VoiceStream("사자가 되게 속상하겠다..", output_file)
             MS.play_file(output_file)
 
-        elif("으앙한번" in text):
+        elif("으앙" in text):
             stt_tts.getText2VoiceStream("사자야 울지마,,", output_file)
             MS.play_file(output_file)
 
-        elif("묶을수있었으니까" in text):
+        elif("묶을수" in text):
             stt_tts.getText2VoiceStream("거미야 고마워~", output_file)
             MS.play_file(output_file)
 
