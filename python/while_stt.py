@@ -55,6 +55,52 @@ def cloud_bread():#구름빵
     stt_tts.getText2VoiceStream("잘들었어. 다음에 또 읽어줘.", output_file)
 
 
+def poof_in_myhead(): #칭찬 먹으러 가요?
+    output_file = "testtts.wav"
+    text=""
+    while True:
+        text = stt_tts.getVoice2Text()
+        text=text.replace(" ","")
+
+        if(("끝" in text) or ("그만" in text)): #잘들었어,재밌었어,다음에 또 읽어줘 
+            break
+
+        elif("생일카드" in text):
+			stt_tts.getText2VoiceStream("우와, 아빠께서 좋으시겠다.", output_file)
+			MS.play_file(output_file)
+        
+        elif("등산으로" in text):
+			stt_tts.getText2VoiceStream("가족 등산 부럽다..", output_file)
+			MS.play_file(output_file)
+        
+        elif("출발하자" in text):
+			stt_tts.getText2VoiceStream("세시간이나 걸리는 구나..", output_file)
+			MS.play_file(output_file)
+
+        elif("크게소리" in text):
+			stt_tts.getText2VoiceStream("위험해", output_file)
+			MS.play_file(output_file)
+
+        elif("모두털썩" in text):
+			stt_tts.getText2VoiceStream("지원아, 병관아 조금만 더 힘을 내", output_file)
+			MS.play_file(output_file)
+
+        elif("뒤따라오던아저씨" in text):
+			stt_tts.getText2VoiceStream("힘내", output_file)
+			MS.play_file(output_file)
+
+        elif(("한줄" in text) and ("올라" in text)):
+			stt_tts.getText2VoiceStream("조심, 조심", output_file)
+			MS.play_file(output_file)
+
+        elif(("기분" in text) and ("으쓱" in text)):
+			stt_tts.getText2VoiceStream("지원이와 병관이, 대단해", output_file)
+			MS.play_file(output_file)
+
+
+    stt_tts.getText2VoiceStream("잘들었어. 다음에 또 읽어줘.", output_file)
+    
+
 def bingle_tiger():#줄줄이꿴호랑이
     output_file = "testtts.wav"
     text=""
@@ -144,6 +190,8 @@ def school_way(): #학교 가는 길
 
         if(("끝" in text) or ("그만" in text)): #잘들었어,재밌었어,다음에 또 읽어줘 
             break
+		
+		
 
         elif("" in text):
 
@@ -159,7 +207,32 @@ def funny_eating(): #재미있게 먹는 법
         if(("끝" in text) or ("그만" in text)): #잘들었어,재밌었어,다음에 또 읽어줘 
             break
 
-        elif("" in text):
+		elif(("머리카락" in text) and ("눈동자" in text) and ("친구" in text)):
+			stt_tts.getText2VoiceStream("누굴까아?", output_file)
+			MS.play_file(output_file)
+		
+		elif("이야기가아주" in text):
+			stt_tts.getText2VoiceStream("우와, 말을 탈 수 있다니 되게 부러워.", output_file)
+			MS.play_file(output_file)
+
+		elif(("힘들지않습니다"in text) and ("선생님" in text)):
+			stt_tts.getText2VoiceStream("중국의 친구들은 다같이 등교를 하는구나.", output_file)
+			MS.play_file(output_file)
+
+		elif("시원한아이스크림"in text):
+			stt_tts.getText2VoiceStream("터키아이스크림 나도 먹고싶다", output_file)
+			MS.play_file(output_file)
+
+		elif("무엇일까요" in text):
+			stt_tts.getText2VoiceStream("무엇일까???", output_file)
+			MS.play_file(output_file)
+
+		elif("페달을밟으며"in text):
+			stt_tts.getText2VoiceStream("열심히 페달을 밟아서 일등하자", output_file)
+			MS.play_file(output_file)
+
+ 
+
 
     stt_tts.getText2VoiceStream("잘들었어. 다음에 또 읽어줘.", output_file)
 
@@ -270,4 +343,3 @@ def poof_in_myhead(): #누가 내 머리에 똥쌌어?
 			MS.play_file(output_file)
 
     stt_tts.getText2VoiceStream("잘들었어. 다음에 또 읽어줘.", output_file)
-
