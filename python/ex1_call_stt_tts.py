@@ -63,7 +63,7 @@ def main():
 			while_stt.my_father_is_best()
 		
 		#10 #누가 내 머리에 똥쌌어?
-		elif(("내머리에똥" in text) and (("읽을" in text) or ("읽어" in text))):
+		elif(("내머리" in text) and ("똥" in text) and (("읽을" in text) or ("읽어" in text))):
 			stt_tts.getText2VoiceStream("듣기모드를 실행할게.",output_file)
 			MS.play_file(output_file)
 			while_stt.poof_in_myhead()

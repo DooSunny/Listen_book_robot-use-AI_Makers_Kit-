@@ -399,14 +399,14 @@ def poof_in_myhead(): #누가 내 머리에 똥쌌어?
 		text = stt_tts.getVoice2Text()
 		text=text.replace(" ","")
 
-		if(("끝" in text) or ("그만" in text)): #잘들었어,재밌었어,다음에 또 읽어줘 
+		if("그만" in text): #잘들었어,재밌었어,다음에 또 읽어줘 
 			break
 
 		elif("소시지같기도" in text):
 			stt_tts.getText2VoiceStream("뭘까아?", output_file)
 			MS.play_file(output_file)
 		
-		elif("누구야" in text):
+		elif("아무도찾을수" in text):
 			stt_tts.getText2VoiceStream("누구야", output_file)
 			MS.play_file(output_file)
 
@@ -428,6 +428,10 @@ def poof_in_myhead(): #누가 내 머리에 똥쌌어?
 
 		elif("개가한짓" in text):
 			stt_tts.getText2VoiceStream("강아지 나빠.", output_file)
+			MS.play_file(output_file)
+
+		elif("기분좋게" in text):
+			stt_tts.getText2VoiceStream("그래도 두더지 머리위에 똥을 싼 범인을 찾게되어서 다행이야.",output_file)
 			MS.play_file(output_file)
 
 	stt_tts.getText2VoiceStream("잘들었어. 다음에 또 읽어줘.", output_file)
