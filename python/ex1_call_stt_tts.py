@@ -43,7 +43,7 @@ def main():
 			stt_tts.getText2VoiceStream("듣기모드를 실행할게.",output_file)
 			MS.play_file(output_file)
 			while_stt.school_way()
-			
+
 		#7 #재미있게 먹는 법
 		elif(("재미있게" in text) and (("읽을" in text ) or ("읽어" in text))):
 			stt_tts.getText2VoiceStream("듣기모드를 실행할게.",output_file)
@@ -67,8 +67,6 @@ def main():
 			stt_tts.getText2VoiceStream("듣기모드를 실행할게.",output_file)
 			MS.play_file(output_file)
 			while_stt.poof_in_myhead()
-
-
 
 		else:
 			stt_tts.getText2VoiceStream("알아들을 수 가 없습니다. 다시한번 말씀 해주세요.", output_file)
