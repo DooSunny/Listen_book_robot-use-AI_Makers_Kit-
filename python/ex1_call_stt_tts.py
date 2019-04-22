@@ -39,7 +39,7 @@ def main():
 			while_stt.red_tie_lion()
 		
 		#6 #학교 가는 길
-		elif(("학교가는길" in text) and (("읽을"in text) or ("읽어" in text))) :
+		elif(("학교" in text) and (("읽을"in text) or ("읽어" in text))) :
 			stt_tts.getText2VoiceStream("듣기모드를 실행할게.",output_file)
 			MS.play_file(output_file)
 			while_stt.school_way()
