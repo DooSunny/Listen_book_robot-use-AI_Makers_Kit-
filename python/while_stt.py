@@ -70,37 +70,37 @@ def eat_compliment(): #칭찬 먹으러 가요?
 		elif("생일카드" in text):
 			stt_tts.getText2VoiceStream("우와, 아빠께서 좋으시겠다.", output_file)
 			MS.play_file(output_file)
-        
-        elif("등산으로" in text):
+
+		elif("등산으로" in text):
 			stt_tts.getText2VoiceStream("가족 등산 부럽다..", output_file)
 			MS.play_file(output_file)
-        
-        elif("출발하자" in text):
+				
+		elif("출발하자" in text):
 			stt_tts.getText2VoiceStream("세시간이나 걸리는 구나..", output_file)
 			MS.play_file(output_file)
 
-        elif("크게소리" in text):
+		elif("크게소리" in text):
 			stt_tts.getText2VoiceStream("위험해", output_file)
 			MS.play_file(output_file)
 
-        elif("모두털썩" in text):
+		elif("모두털썩" in text):
 			stt_tts.getText2VoiceStream("지원아, 병관아 조금만 더 힘을 내", output_file)
 			MS.play_file(output_file)
 
-        elif("뒤따라오던아저씨" in text):
+		elif("뒤따라오던아저씨" in text):
 			stt_tts.getText2VoiceStream("힘내", output_file)
 			MS.play_file(output_file)
 
-        elif(("한줄" in text) and ("올라" in text)):
+		elif(("한줄" in text) and ("올라" in text)):
 			stt_tts.getText2VoiceStream("조심, 조심", output_file)
 			MS.play_file(output_file)
 
-        elif(("기분" in text) and ("으쓱" in text)):
+		elif(("기분" in text) and ("으쓱" in text)):
 			stt_tts.getText2VoiceStream("지원이와 병관이, 대단해", output_file)
 			MS.play_file(output_file)
 
 
-    stt_tts.getText2VoiceStream("잘들었어. 다음에 또 읽어줘.", output_file)
+	stt_tts.getText2VoiceStream("잘들었어. 다음에 또 읽어줘.", output_file)
     
 
 #3
@@ -173,29 +173,30 @@ def red_tie_lion():#빨간 끈으로 머리를 묶은 사자
 
 #5
 def always_love_you(): #언제까지나 너를 사랑해
-    output_file = "testtts.wav"
-    text=""
-    while True:
-        text = stt_tts.getVoice2Text()
-        text=text.replace(" ","")
+	output_file = "testtts.wav"
+	text=""
+	while True:
+		text = stt_tts.getVoice2Text()
+		text=text.replace(" ","")
 
-        if(("끝" in text) or ("그만" in text)): #잘들었어,재밌었어,다음에 또 읽어줘 
-            break
+		if(("끝" in text) or ("그만" in text)): #잘들었어,재밌었어,다음에 또 읽어줘 
+			break
 
-        elif("" in text):
+		elif("" in text):
+			pass
 
-    stt_tts.getText2VoiceStream("잘들었어. 다음에 또 읽어줘.", output_file)
+	stt_tts.getText2VoiceStream("잘들었어. 다음에 또 읽어줘.", output_file)
 
 #6
 def school_way(): #학교 가는 길
-    output_file = "testtts.wav"
-    text=""
-    while True:
-        text = stt_tts.getVoice2Text()
-        text=text.replace(" ","")
+	output_file = "testtts.wav"
+	text=""
+	while True:
+		text = stt_tts.getVoice2Text()
+		text=text.replace(" ","")
 
-        if(("끝" in text) or ("그만" in text)): #잘들었어,재밌었어,다음에 또 읽어줘 
-            break
+		if(("끝" in text) or ("그만" in text)): #잘들었어,재밌었어,다음에 또 읽어줘 
+			break
 		
 		elif(("머리카락" in text) and ("눈동자" in text) and ("친구" in text)):
 			stt_tts.getText2VoiceStream("누굴까아?", output_file)
@@ -273,18 +274,18 @@ def school_way(): #학교 가는 길
 			stt_tts.getText2VoiceStream("우와 지구촌 아이들의 학교 가는 길은 굉장히 다양하구나", output_file)
 			MS.play_file(output_file)
 
-    stt_tts.getText2VoiceStream("잘들었어. 다음에 또 읽어줘.", output_file)
+	stt_tts.getText2VoiceStream("잘들었어. 다음에 또 읽어줘.", output_file)
 
 #7
 def funny_eating(): #재미있게 먹는 법
-    output_file = "testtts.wav"
-    text=""
-    while True:
-        text = stt_tts.getVoice2Text()
-        text=text.replace(" ","")
+	output_file = "testtts.wav"
+	text=""
+	while True:
+		text = stt_tts.getVoice2Text()
+		text=text.replace(" ","")
 
-        if(("끝" in text) or ("그만" in text)): #잘들었어,재밌었어,다음에 또 읽어줘 
-            break
+		if(("끝" in text) or ("그만" in text)): #잘들었어,재밌었어,다음에 또 읽어줘 
+			break
 
 		elif(("당근"in text and ("앞니"in text))):
 			stt_tts.getText2VoiceStream("아삭아삭 어석어석", output_file)
@@ -318,24 +319,24 @@ def funny_eating(): #재미있게 먹는 법
 			stt_tts.getText2VoiceStream("모두들 배부르게 밥을 먹어서 기뻐", output_file)
 			MS.play_file(output_file)
 
-    stt_tts.getText2VoiceStream("잘들었어. 다음에 또 읽어줘.", output_file)
+	stt_tts.getText2VoiceStream("잘들었어. 다음에 또 읽어줘.", output_file)
 
 #8
 def mole_bus(): #두더지 버스
-    output_file = "testtts.wav"
-    text=""
-    while True:
-        text = stt_tts.getVoice2Text()
-        text=text.replace(" ","")
+	output_file = "testtts.wav"
+	text=""
+	while True:
+		text = stt_tts.getVoice2Text()
+		text=text.replace(" ","")
 
-        if(("끝" in text) or ("그만" in text)): #잘들었어,재밌었어,다음에 또 읽어줘 
-            break
+		if(("끝" in text) or ("그만" in text)): #잘들었어,재밌었어,다음에 또 읽어줘 
+			break
 
 		elif("모르는마을"in text):
 			stt_tts.getText2VoiceStream("땅속에 마을이 있다고?", output_file)
 			MS.play_file(output_file)
 		
-        elif("모양이에요" in text):
+		elif("모양이에요" in text):
 			stt_tts.getText2VoiceStream("우와.", output_file)
 			MS.play_file(output_file)
 
@@ -363,20 +364,20 @@ def mole_bus(): #두더지 버스
 			stt_tts.getText2VoiceStream("평화로운 두더지 버스 이야기네~.", output_file)
 			MS.play_file(output_file)
 
-    stt_tts.getText2VoiceStream("잘들었어. 다음에 또 읽어줘.", output_file)
+	stt_tts.getText2VoiceStream("잘들었어. 다음에 또 읽어줘.", output_file)
 
 #9
 def my_father_is_best(): #우리 아빠가 최고야
-    output_file = "testtts.wav"
-    text=""
-    while True:
-        text = stt_tts.getVoice2Text()
-        text=text.replace(" ","")
+	output_file = "testtts.wav"
+	text=""
+	while True:
+		text = stt_tts.getVoice2Text()
+		text=text.replace(" ","")
 
-        if(("끝" in text) or ("그만" in text)): #잘들었어,재밌었어,다음에 또 읽어줘 
-            break
+		if(("끝" in text) or ("그만" in text)): #잘들었어,재밌었어,다음에 또 읽어줘 
+			break
 
-        elif("문제없이" in text):
+		elif("문제없이" in text):
 			stt_tts.getText2VoiceStream("멋있는 아빠야!", output_file)
 			MS.play_file(output_file)
 		
@@ -388,20 +389,20 @@ def my_father_is_best(): #우리 아빠가 최고야
 			stt_tts.getText2VoiceStream("나도 사랑해", output_file)
 			MS.play_file(output_file)
 
-    stt_tts.getText2VoiceStream("잘들었어. 다음에 또 읽어줘.", output_file)
+	stt_tts.getText2VoiceStream("잘들었어. 다음에 또 읽어줘.", output_file)
 
 #10
 def poof_in_myhead(): #누가 내 머리에 똥쌌어?
-    output_file = "testtts.wav"
-    text=""
-    while True:
-        text = stt_tts.getVoice2Text()
-        text=text.replace(" ","")
+	output_file = "testtts.wav"
+	text=""
+	while True:
+		text = stt_tts.getVoice2Text()
+		text=text.replace(" ","")
 
-        if(("끝" in text) or ("그만" in text)): #잘들었어,재밌었어,다음에 또 읽어줘 
-            break
+		if(("끝" in text) or ("그만" in text)): #잘들었어,재밌었어,다음에 또 읽어줘 
+			break
 
-        elif("소시지같기도" in text):
+		elif("소시지같기도" in text):
 			stt_tts.getText2VoiceStream("뭘까아?", output_file)
 			MS.play_file(output_file)
 		
@@ -429,4 +430,4 @@ def poof_in_myhead(): #누가 내 머리에 똥쌌어?
 			stt_tts.getText2VoiceStream("강아지 나빠.", output_file)
 			MS.play_file(output_file)
 
-    stt_tts.getText2VoiceStream("잘들었어. 다음에 또 읽어줘.", output_file)
+	stt_tts.getText2VoiceStream("잘들었어. 다음에 또 읽어줘.", output_file)

@@ -14,36 +14,37 @@ def main():
 
 		# "읽는다" 하였을때 호출어없이 sst만 동작
 		
-		#1
+		#1 #구름빵
 		elif("구름빵" in text and (("읽을" in text) or ("읽어" in text))):
 			stt_tts.getText2VoiceStream("듣기모드를 실행할게.",output_file)
 			MS.play_file(output_file)
 			while_stt.cloud_bread()
 
-		#2
+		#2 #칭찬 먹으러 가요?
 		elif("칭찬먹으러"in text and(("읽을"in text) or ("읽어" in text))):
 			stt_tts.getText2VoiceStream("듣기모드를 실행할게.",output_file)
 			MS.play_file(output_file)
 			while_stt.eat_compliment()
 		
-		#3
+		#3 #줄줄이꿴호랑이
 		elif("호랑이" in text and (("읽을" in text) or ("읽어" in text))):
 			stt_tts.getText2VoiceStream("듣기모드를 실행할게.",output_file)
 			MS.play_file(output_file)
 			while_stt.bingle_tiger()
 
-		#4
+		#4 #빨간 끈으로 머리를 묶은 사자 
 		elif("사자 " in text and (("읽을" in text) or ("읽어" in text))):
 			stt_tts.getText2VoiceStream("듣기모드를 실행할게.",output_file)
 			MS.play_file(output_file)
 			while_stt.red_tie_lion()
 		
-		#6
+		#6 #학교 가는 길
 		elif(("학교가는길" in text) and (("읽을"in text) or ("읽어" in text))) :
 			stt_tts.getText2VoiceStream("듣기모드를 실행할게.",output_file)
 			MS.play_file(output_file)
 			while_stt.school_way()
-		#7
+			
+		#7 #재미있게 먹는 법
 		elif(("재미있게" in text) and (("읽을" in text ) or ("읽어" in text))):
 			stt_tts.getText2VoiceStream("듣기모드를 실행할게.",output_file)
 			MS.play_file(output_file)
