@@ -202,7 +202,7 @@ def school_way(): #학교 가는 길
 			stt_tts.getText2VoiceStream("누굴까아?", output_file)
 			MS.play_file(output_file)
 		
-		elif("이야기가아주" in text):
+		elif("아주많을" in text):
 			stt_tts.getText2VoiceStream("우와, 말을 탈 수 있다니 되게 부러워.", output_file)
 			MS.play_file(output_file)
 
